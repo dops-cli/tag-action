@@ -243,6 +243,12 @@ export const getChangelog = async (
         })
         .join("\n");
 
+    changelog = changelog.replace(/^.*autoupdate.*$/mg, "");
+
+    let EOL = changelog.match(/\r\n/gm)?"\r\n":"\n";
+    let regExp = new RegExp("("+EOL+"){3,}", "gm");
+    changelog = changelog.replace(regExp, EOL+EOL);
+
     core.debug('Changelog:');
     core.debug(changelog);
 
