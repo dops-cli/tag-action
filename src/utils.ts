@@ -112,6 +112,8 @@ const getFormattedChangelogEntry = (parsedCommit: ParsedCommits): string => {
         entry = `- ${scopeStr}${parsedCommit.subject}${prString} ([${author}](${url}))`;
     }
 
+    if (parsedCommit.subject == "autodoc") return ""
+
     return entry;
 };
 

@@ -308,7 +308,7 @@ export const main = async () => {
       name: args.automaticReleaseTag && args.releaseTitle ? args.releaseTitle : releaseTag,
       draft: args.draftRelease,
       prerelease: args.preRelease,
-      body: "",
+      body: changelog,
     });
 
     await uploadReleaseArtifacts(client, releaseUploadUrl, args.files);
