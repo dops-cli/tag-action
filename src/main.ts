@@ -236,13 +236,6 @@ export const getChangelog = async (
 
     let changelog = generateChangelogFromParsedCommits(parsedCommits);
 
-    changelog = changelog
-        .split("\n")
-        .filter((item, i, allItems) => {
-            return i === allItems.indexOf(item);
-        })
-        .join("\n");
-
     changelog = changelog.replace(/^.*autoupdate.*$/mg, "");
 
     let EOL = changelog.match(/\r\n/gm)?"\r\n":"\n";
